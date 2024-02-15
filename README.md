@@ -14,7 +14,7 @@ Production ready in this case means that automated processes are properly automa
 
 A Hetzner 48vCPU 192GB Mem 960GB disk VM costs ~$309/mo in their us-east region, including 60TB of egress. You can attach up to 10TB volumes as well.
 
-Hetzner has a great terraform operator, docker swarm and kamal work great, and they even have [k8s controllers for load balancers and nodes](https://github.com/hetznercloud/hcloud-cloud-controller-manager).
+Hetzner has a great terraform operator, docker swarm and kamal work great, and they even have a [k8s controller for load balancers and nodes](https://github.com/hetznercloud/hcloud-cloud-controller-manager).
 
 EC2 costs over $2k for the same machine (and doesn't include the $540 worth of egress), RDS postgres costs $3k, Aurora $5k, and Aurora IO optimized $6.6k
 
