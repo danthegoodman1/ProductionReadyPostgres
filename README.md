@@ -29,9 +29,9 @@ Even DigitalOcean charges nearly $1.3k for a 40 vCPU machine (can't get more tha
 
 ### Backup
 
-[walg](https://github.com/wal-g/wal-g) is used for backup and restore. You can choose what ever S3 provider you want, but I like to use either Cloudflare R2 (slower, cheaper) or Backblaze B2 when I'm not using a specific platform. If I was on DigitalOcean I'd just use spaces, or on AWS I'd just use S3.
+[wal-g](https://github.com/wal-g/wal-g) is used for backup and restore. You can choose what ever S3 provider you want, but I like to use either Cloudflare R2 (slower, cheaper) or Backblaze B2 when I'm not using a specific platform. If I was on DigitalOcean I'd just use spaces, or on AWS I'd just use S3.
 
-Since walg doesn't have an official docker image, we make one on the fly.
+Since wal-g doesn't have an official docker image, we make one on the fly.
 
 You need to configure the S3 credentials for walg to be able to backup and restore.
 

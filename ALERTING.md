@@ -2,6 +2,10 @@
 
 WIP
 
+## Understanding Vector metrics
+
+Review the [Vector metrics schema](https://vector.dev/docs/about/under-the-hood/architecture/data-model/metric/#schema) to understand what the JSON looks like
+
 ## Postres monitoring
 
 Check for the `up` metric, this indicates whether vector is able to connect to the postgres instance
