@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  db:
+    image: postgres:latest # pin the image version if you want
+    restart: always
+    environment:
+      # POSTGRES_PASSWORD: REAPLCEME # user is `postgres`, this is the admin user
+      POSTGRES_PASSWORD: /run/secrets/POSTGRES_PASSWORD # use a docker secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+
+volumes:
+  pgdata: # we're using a docker volume here

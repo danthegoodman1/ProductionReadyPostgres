@@ -1,0 +1,42 @@
+api:
+  enabled: true
+  address: 127.0.0.1:8686
+
+sources:
+  docker:
+    type: docker_logs
+
+  host_metrics:
+    type: host_metrics
+    collectors:
+      - "cgroups"
+      - "cpu"
+      - "disk"
+      - "filesystem"
+      - "load"
+      - "host"
+      - "memory"
+      - "network"
+
+  postgres_metrics:
+    type: postgresql_metrics
+    endpoints:
+      - postgresql://postgres:${POSTGRES_PASSWORD}@db:5432/postgres
+
+transforms:
+  drop_self:
+    type: filter
+    inputs:
+      - docker
+    condition: .container_name != "vector"
+
+# SET UP YOUR SINK!
+sinks:
+  axiom_sink:
+    type: axiom
+    inputs:
+      - drop_self
+      - host_metrics
+      - postgres_metrics
+    dataset: ${AXIOM_DATASET}
+    token: ${AXIOM_TOKEN}
