@@ -8,7 +8,13 @@ services:
       POSTGRES_PASSWORD: /run/secrets/POSTGRES_PASSWORD # use a docker secret
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: [“CMD-SHELL”, “pg_isready”]
+      interval: 1s
+      timeout: 5s
+      retries: 10
 
+# TODO: walg image and service, mount the volume in the same place
 
 volumes:
   pgdata: # we're using a docker volume here
